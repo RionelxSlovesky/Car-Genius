@@ -30,6 +30,7 @@ async function run() {
         await client.connect();
 
         const servicesCollection = client.db('carDoctorDatabase').collection('services')
+        const bookingsCollection = client.db('carDoctorDatabase').collection('bookings')
 
         app.get('/services', async (req, res) => {
             const cursor = servicesCollection.find();
@@ -52,11 +53,19 @@ async function run() {
 
                 res.send(services)
             }
-            catch(err) {
+            catch (err) {
                 res.send(err)
             }
 
+        })
 
+        app.post('/bookings', async (req, res) => {
+            try {
+                const booking = req.body;
+            }
+            catch (err) {
+                res.send(err)
+            }
         })
 
 
