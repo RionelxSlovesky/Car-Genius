@@ -62,6 +62,8 @@ async function run() {
         app.post('/bookings', async (req, res) => {
             try {
                 const booking = req.body;
+                const result = await bookingsCollection.insertOne(booking);
+                res.send(result)
             }
             catch (err) {
                 res.send(err)

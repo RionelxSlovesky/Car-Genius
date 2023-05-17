@@ -22,11 +22,26 @@ const CheckOut = () => {
             customerEmail: email,
             date: date,
             session: session,
-            service: _id,
+            service: title,
+            service_id: _id,
             price: price
         }
 
-        console.log(order)
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId) {
+                alert(`Booked ${title} successfully`)
+            }
+        })
+        .catch(err => console.log(err))
+
     }
 
     return (
