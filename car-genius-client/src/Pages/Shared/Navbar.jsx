@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom";
 import logo from '../../assets/logo.svg'
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
+
+    const { user, loading, logout } = useContext(AuthContext)
+
+    const handleLogOut = event => {
+        event.preventDefault();
+        logout()
+        .then(() => {
+            alert('Logged Out Successfully')
+        })
+        .catch(err => console.log(err.message))
+    }
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -12,7 +26,6 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <Link to='/'>Home</Link>
                         <Link to=''>About</Link>
-                        <Link to='/login'>Login</Link>
                     </ul>
                 </div>
             </div>
@@ -20,13 +33,14 @@ const Navbar = () => {
                 <Link className="btn btn-ghost normal-case text-xl"><img src={logo} className="w-16 p-2" alt="" /></Link>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-warning">Appointment</button>
-                <button className="btn btn-ghost btn-circle">
+                
                     <div className="indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-                        <span className="badge badge-xs badge-primary indicator-item"></span>
+                        {
+                            loading ? <></> : user ? <button className="btn btn-warning text-xs" onClick={handleLogOut}>Log Out</button> : <Link className="btn btn-warning text-xs" to='/login'><button>Log In</button></Link>
+                        }
+                        
                     </div>
-                </button>
+                
             </div>
         </div>
     );
