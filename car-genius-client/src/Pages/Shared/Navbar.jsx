@@ -36,7 +36,7 @@ const Navbar = () => {
                 
                     <div className="indicator">
                         {
-                            loading ? <></> : user ? <button className="btn btn-warning text-xs" onClick={handleLogOut}>Log Out</button> : <Link className="btn btn-warning text-xs" to='/login'><button>Log In</button></Link>
+                            loading ? <></> : user ? <button className="btn btn-warning text-xs" onClick={handleLogOut}>Log Out</button> : <Link className="btn btn-warning text-xs" to='/login'><button className="uppercase">Log In</button></Link>
                         }
                         
                     </div>
