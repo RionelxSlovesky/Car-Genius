@@ -46,7 +46,7 @@ async function run() {
                 const query = { _id: new ObjectId(id) };
 
                 const options = {
-                    projection: { title: 1, price: 1, services_id: 1 }
+                    projection: { title: 1, price: 1, services_id: 1, img:1 }
                 }
 
                 const services = await servicesCollection.findOne(query, options);
@@ -82,6 +82,29 @@ async function run() {
                 const booking = req.body;
                 const result = await bookingsCollection.insertOne(booking);
                 res.send(result)
+            }
+            catch (err) {
+                res.send(err)
+            }
+        })
+
+        app.put('/bookings/:id', async(req,res) => {
+            try {
+                const id = req.params.id
+            }
+            catch (err) {
+                res.send(err)
+            }
+        })
+
+        app.delete('/bookings/:id', async(req,res) => {
+            try {
+                const id = req.params.id
+                const query = {_id: new ObjectId(id)}
+
+                const result = await bookingsCollection.deleteOne(query)
+                res.send(result)
+
             }
             catch (err) {
                 res.send(err)

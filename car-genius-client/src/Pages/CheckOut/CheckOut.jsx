@@ -6,7 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 const CheckOut = () => {
 
     const service = useLoaderData();
-    const { _id, title, price } = service;
+    const { _id, title, price, img } = service;
     const {user} = useContext(AuthContext)
 
     const handleBooking = event => {
@@ -20,6 +20,7 @@ const CheckOut = () => {
         const order = {
             customerName: name,
             customerEmail: email,
+            img: img,
             date: date,
             session: session,
             service: title,
