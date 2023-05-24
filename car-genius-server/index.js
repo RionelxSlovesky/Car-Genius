@@ -88,9 +88,21 @@ async function run() {
             }
         })
 
-        app.put('/bookings/:id', async(req,res) => {
+        app.patch('/bookings/:id', async(req,res) => {
             try {
                 const id = req.params.id
+                const filter = {_id: new ObjectId(id)};
+                
+                const updateBooking = req.body;
+                console.log(updateBooking);
+                const updateDoc = {
+                    $set: {
+                        status: updateBooking.status
+                    }
+                }
+                const result = await bookingsCollection.updateOne(filter, updateDoc)
+                res.send(result)
+                
             }
             catch (err) {
                 res.send(err)
