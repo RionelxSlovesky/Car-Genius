@@ -95,6 +95,11 @@ async function run() {
     // bookings
     app.get("/bookings", verifyJWT, async (req, res) => {
       try {
+
+        if(decoded.email !== req.query.email) {
+          return res.status(403).send({error: 1, message: 'forbidden access'})
+        }
+
         let query = {};
         if (req.query?.email) {
           query = { customerEmail: req.query.email };
