@@ -28,7 +28,7 @@ const CheckOut = () => {
             price: price
         }
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://car-genius-server-orcin.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
