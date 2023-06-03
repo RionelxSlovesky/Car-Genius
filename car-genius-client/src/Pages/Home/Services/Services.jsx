@@ -17,7 +17,7 @@ const Services = () => {
             <div className="text-center">
                 <h3 className="text-2xl text-orange-600">Our Services</h3>
                 <h2 className="text-5xl">Our Service Areas</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt aspernatur neque quod laboriosam quaerat eos mollitia? <br /> Libero ducimus fuga dignissimos exercitationem ut. Quidem ducimus nemo mollitia repudiandae minima dicta aspernatur autem nobis praesentium nesciunt cum.</p>
+                <p>Our mission is to deliver reliable and efficient car services that exceed customer expectations. Whether you need routine maintenance, such as oil changes and tire rotations, or more complex repairs, our knowledgeable team is here to help. We pride ourselves on using advanced diagnostic equipment and industry-leading techniques to accurately identify and address any issues your vehicle may have.</p>
             </div>
             <div className="flex flex-wrap justify-center gap-6">
                 {

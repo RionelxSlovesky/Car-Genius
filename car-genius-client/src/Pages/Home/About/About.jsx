@@ -13,7 +13,7 @@ const About = () => {
                 <div className='lg:w-1/2 p-12'>
                     <h3 className='text-3xl text-orange-500 font-bold'>About Us</h3>
                     <h1 className="text-5xl font-bold">We are qualified & experienced in this field!</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <p className="py-6">At Car Doctor, we are dedicated to providing exceptional car maintenance and repair services to our valued customers. With years of experience in the automotive industry, our team of skilled technicians is committed to ensuring that your vehicle receives the highest quality of care.</p>
                     <button className="btn btn-warning">Get More Info</button>
                 </div>
             </div>

@@ -83,7 +83,7 @@ const Bookings = () => {
         </thead>
         <tbody>
           {/* rows */}
-          {bookings.map((booking) => (
+          {bookings?.map((booking) => (
             <BookingRow
               key={booking._id}
               booking={booking}
